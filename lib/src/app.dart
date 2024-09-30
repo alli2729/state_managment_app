@@ -9,6 +9,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      title: 'Todo App',
       debugShowCheckedModeBanner: false,
       initialRoute: RouteNames.todo,
       getPages: RoutePages.pages,
