@@ -18,6 +18,7 @@ class TodoListItem extends GetView<TodoListController> {
           const SizedBox(width: 10),
           _titleAndDesc(),
           const Spacer(),
+          _editButton(),
           _deleteButton(),
         ],
       ),
@@ -40,6 +41,13 @@ class TodoListItem extends GetView<TodoListController> {
     return IconButton(
       onPressed: () => controller.onRemove(todo.id),
       icon: const Icon(Icons.delete),
+    );
+  }
+
+  Widget _editButton() {
+    return IconButton(
+      onPressed: () => controller.editTodo(todo.id),
+      icon: const Icon(Icons.edit),
     );
   }
 
