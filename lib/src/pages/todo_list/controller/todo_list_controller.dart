@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import '../../../infrastructure/routes/route_names.dart';
 import '../models/todo_model.dart';
 
 class TodoListController extends GetxController {
@@ -10,17 +11,7 @@ class TodoListController extends GetxController {
 
   //* Methods _________________________________________________________________
 
-  void addTodo() {
-    todos.add(
-      TodoModel(
-        id: idMaker,
-        title: 'title',
-        description: 'description',
-        isDone: false,
-      ),
-    );
-    ++idMaker;
-  }
+  void addTodo() => Get.toNamed(RouteNames.addTodo);
 
   void onRemove(int id) {
     todos.removeWhere((element) => element.id == id);
@@ -28,7 +19,7 @@ class TodoListController extends GetxController {
 
   void onTodoDone(int id, bool newValue) {
     int index = todos.indexWhere((element) => element.id == id);
-    TodoModel newTodo = todos[index].copyWith(id, null, null, newValue);
+    TodoModel newTodo = todos[index].copyWith(isDone: newValue);
     todos[index] = newTodo;
   }
 }

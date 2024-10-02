@@ -13,17 +13,17 @@ class TodoModel {
   });
   // Methods
 
-  TodoModel copyWith(
+  TodoModel copyWith({
     int? id,
     String? title,
     String? description,
     bool? isDone,
-  ) {
+  }) {
     return TodoModel(
-      id: id ?? this.id,
-      title: title ?? this.title,
-      description: description ?? this.description,
-      isDone: isDone ?? this.isDone,
-    );
+        id: id ?? this.id,
+        title: title ?? this.title,
+        description: description ?? this.description,
+        isDone: isDone ?? this.isDone,
+      );
   }
 }
