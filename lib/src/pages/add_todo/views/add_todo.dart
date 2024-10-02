@@ -24,7 +24,9 @@ class AddTodo extends GetView<AddTodoController> {
 
   Widget _fab() {
     return FloatingActionButton(
-      onPressed: controller.returnData,
+      onPressed: controller.submit,
+      elevation: 0,
+      hoverElevation: 0,
       child: const Icon(Icons.check),
     );
   }
@@ -32,20 +34,26 @@ class AddTodo extends GetView<AddTodoController> {
   Widget _body() {
     return Padding(
       padding: const EdgeInsets.all(24.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          _titleField(),
-          const SizedBox(height: 18),
-          _descriptionField(),
-        ],
+      child: Form(
+        key: controller.formKey,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _titleField(),
+            const SizedBox(height: 18),
+            _descriptionField(),
+          ],
+        ),
       ),
     );
   }
 
+  //* Widgets _________________________________________________________________
+
   Widget _titleField() {
-    return TextField(
+    return TextFormField(
       controller: controller.titleController,
+      validator: controller.validator,
       decoration: const InputDecoration(
         border: OutlineInputBorder(),
         labelText: 'Title',
@@ -54,8 +62,9 @@ class AddTodo extends GetView<AddTodoController> {
   }
 
   Widget _descriptionField() {
-    return TextField(
+    return TextFormField(
       controller: controller.descriptionController,
+      validator: controller.validator,
       decoration: const InputDecoration(
         border: OutlineInputBorder(),
         labelText: 'Description',
