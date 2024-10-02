@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'infrastructure/routes/route_names.dart';
+import 'infrastructure/routes/route_path.dart';
 import 'infrastructure/routes/route_pages.dart';
 
 class App extends StatelessWidget {
@@ -11,7 +11,7 @@ class App extends StatelessWidget {
     return GetMaterialApp(
       title: 'Todo App',
       debugShowCheckedModeBanner: false,
-      initialRoute: RouteNames.todo,
+      initialRoute: RoutePath.todo,
       getPages: RoutePages.pages,
     );
   }

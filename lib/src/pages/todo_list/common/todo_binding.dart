@@ -4,6 +4,6 @@ import '../controller/todo_list_controller.dart';
 class TodoBinding extends Bindings {
   @override
   void dependencies() {
-    Get.put(TodoListController());
+    Get.lazyPut(() => TodoListController());
   }
 }

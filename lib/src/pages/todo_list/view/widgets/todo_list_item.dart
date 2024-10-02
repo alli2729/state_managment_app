@@ -48,7 +48,7 @@ class TodoListItem extends GetView<TodoListController> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          '${todo.title} ${todo.id}',
+          todo.title,
           style: _titleStyle(),
         ),
         Text(

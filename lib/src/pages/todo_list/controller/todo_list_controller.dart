@@ -11,7 +11,19 @@ class TodoListController extends GetxController {
 
   //* Methods _________________________________________________________________
 
-  void addTodo() => Get.toNamed(RouteNames.addTodo);
+  void addTodo() async {
+    final result = await Get.toNamed(RouteNames.addTodo);
+    if (result != null) {
+      todos.add(
+        TodoModel(
+            id: idMaker,
+            title: result[0],
+            description: result[1],
+            isDone: false),
+      );
+      ++idMaker;
+    }
+  }
 
   void onRemove(int id) {
     todos.removeWhere((element) => element.id == id);
